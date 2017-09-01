@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>对外物流管理</title>
-<script src="js/vue.js"></script>
+<script  src="js/vue.js"></script>
 <script src="js/axios.js"></script>
 </head>
 <body>
@@ -14,6 +14,13 @@
 			age:<input type="text" v-model="user.age"/>
 			logName:<input type="text" v-model="user.logName"/>
 		</div>
+		
+		<div>
+		    <button @click="addUser">add user</button>  
+    	</div>
+		<div>
+		    <button @click="queryUser">query user</button>  
+    	</div>
 		<div>
 			<table style="border-left:1px solid #000;border-bottom:1px solid #000;" cellpadding="0" cellspacing="0">
 				<tr v-for="(u,index) in ulist">
@@ -24,15 +31,60 @@
 				</tr>
 			</table>
 		</div>
+		
+		<div style="padding:10px">
+			<p> name:{{user1.name}}<p/>
+			<p> age:{{user1.age}}<p/>
+			<p> logName:{{user1.logName}} <p/>
+		</div>
+		
+		{{user1.isflag}}
 	</div>
 </body>
 
 <script>
+
 var v= new Vue({
     el: '#user',
     data: {
+    	registerUrl: "/user/getUserByRedis",
+        name:'add',
     	user: "",
+    	user1:"",
     	ulist:''
+    },
+    methods:{
+    	addUser:function(event) {
+    		axios({
+             	  method: 'post',
+             	  url: "/user/add",
+             	  params: {
+             	   	    name: 'abc',
+             	   	    age:33,
+             	   	    id:1,
+             	   		logName:'中文'
+             	  }
+           	}).then(function (response) {
+           	  	alert(response.data);
+           	 	v.user1.isflag = response.data;
+           	}).catch(function (error) {
+           	  	alert(error);
+           	});
+    	},
+    	queryUser: function(event){
+    		axios({
+	           	  method: 'post',
+	           	  url: this.registerUrl,
+	           	  params: {
+	           	    name: 'tttt'
+	           	  }
+           	}).then(function (response) {
+           	  	alert(JSON.stringify(response.data));
+           	 	v.user1 = response.data;
+           	}).catch(function (error) {
+           	  	alert(error);
+           	});
+    	} 
     },
     mounted: function() {
         this.$nextTick(function () {
@@ -44,6 +96,20 @@ var v= new Vue({
             	  console.log(res.data)
                 v.ulist = res.data;
             });
+            
+           axios({
+           	  method: 'post',
+           	  url: this.registerUrl,
+           	  params: {
+           	    name: 'abc'
+           	  }
+           	}).then(function (response) {
+           	  	//alert(JSON.stringify(response.data));
+           	 	v.user1 = response.data;
+           	}).catch(function (error) {
+           	  	alert(error);
+           	});
+            
         })
     },
   })
