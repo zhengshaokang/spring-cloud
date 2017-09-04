@@ -24,9 +24,4 @@ zsk-service  服务端   端口8011
 启动方式
 1、可以直接用eclipse启动，开发环境
 2、打成jar包，java -jar  xxx.jar 命令启动
-3、cd zsk-eureka
-   mvn spring-boot:run
-   cd zsk-service
-   mvn spring-boot:run
-   cd zsk-app
-   mvn spring-boot:run
+
