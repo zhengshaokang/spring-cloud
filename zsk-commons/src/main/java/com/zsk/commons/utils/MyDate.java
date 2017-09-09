@@ -7,10 +7,8 @@ import java.util.TimeZone;
 
 /**
  * 
- * @author Lion Weng
- * @date 2017-07-13
- * @version v1.0.0
- *
+ * @author connor-zheng
+ * 
  */
 public class MyDate {
     public static String YEAR_FORMAT = "yyyy";

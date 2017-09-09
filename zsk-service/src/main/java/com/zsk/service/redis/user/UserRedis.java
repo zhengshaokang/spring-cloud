@@ -11,7 +11,11 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.zsk.ddo.User;
 
-
+/**
+ * 
+ * @author connor-zheng
+ * 
+ */
 @Service
 public class UserRedis {
 	@Autowired

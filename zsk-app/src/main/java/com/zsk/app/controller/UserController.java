@@ -13,8 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.zsk.app.hystrix.UserHystrix;
 import com.zsk.commons.utils.ConvertObjectMap;
 import com.zsk.dvo.User;
-
-
+/**
+ * 
+ * @author connor-zheng
+ * 
+ */
 @RestController
 @RequestMapping(value = "user", method = RequestMethod.POST)
 public class UserController {

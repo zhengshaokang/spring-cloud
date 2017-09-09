@@ -7,7 +7,11 @@ import org.springframework.data.domain.PageRequest;
 
 import com.zsk.ddo.User;
 
-
+/**
+ * 
+ * @author connor-zheng
+ * 
+ */
 public interface UserService {
 	public User addUser(User user);
 	public User findById(Long id);

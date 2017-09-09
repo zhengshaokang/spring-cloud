@@ -14,7 +14,11 @@ import com.zsk.dao.user.UserDao;
 import com.zsk.ddo.User;
 import com.zsk.service.jpa.UserService;
 
-
+/**
+ * 
+ * @author connor-zheng
+ * 
+ */
 @Service
 public class UserServiceImpl implements UserService{
 

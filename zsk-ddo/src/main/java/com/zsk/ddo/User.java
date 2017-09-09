@@ -7,10 +7,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+/**
+ * 
+ * @author connor-zheng
+ * 
+ */
 @Entity
 @Table(name = "test")
 public class User implements Serializable{
+	private static final long serialVersionUID = 1L;
 	private Long id;
 	private String name;
 	private Integer age;

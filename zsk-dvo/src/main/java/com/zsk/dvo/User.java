@@ -2,7 +2,11 @@ package com.zsk.dvo;
 
 import java.io.Serializable;
 
-
+/**
+ * 
+ * @author connor-zheng
+ * 
+ */
 public class User implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private Long id;

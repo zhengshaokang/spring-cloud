@@ -6,7 +6,11 @@ import java.beans.PropertyDescriptor;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
-
+/**
+ * 
+ * @author connor-zheng
+ * 
+ */
 public class ConvertObjectMap {
 	public static Map<String, Object> objectToMap(Object obj) throws Exception {    
         if(obj == null)  

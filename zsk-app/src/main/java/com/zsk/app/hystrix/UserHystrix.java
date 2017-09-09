@@ -14,7 +14,7 @@ import com.zsk.dvo.User;
 
 /**
  *
- * @author Lion Weng
+ * @author connor-zheng
  */
 @FeignClient(name = "zsk-service", fallback = UserHystrixImpl.class)
 public interface UserHystrix {
