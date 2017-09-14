@@ -10,7 +10,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
-import com.zsk.dao.user.UserDao;
+import com.zsk.dao.jpa.user.UserDao;
 import com.zsk.ddo.User;
 import com.zsk.service.jpa.UserService;
 

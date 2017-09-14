@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.zsk.app.hystrix.impl.UserHystrixImpl;
+import com.zsk.commons.utils.PageResult;
 import com.zsk.dvo.User;
 
 /**
@@ -30,6 +31,19 @@ public interface UserHystrix {
     
     @RequestMapping(value = "/user/addUserByRedis", method = RequestMethod.POST)
     Boolean addUserByRedis(@RequestParam Map<String,Object> param);
+    
+    
+    @RequestMapping(value = "/user/queryUserByIdEs", method = RequestMethod.POST)
+    User queryUserByIdEs(@RequestParam(value = "id") Long id);
+    @RequestMapping(value = "/user/listes", method = RequestMethod.POST)
+    List<User> queryUsersEs();
+    @RequestMapping(value = "/user/findLikeNameEs", method = RequestMethod.POST)
+    List<User> findLikeNameEs(@RequestParam(value = "name") String name);
+    @RequestMapping(value = "/user/addUesrEs", method = RequestMethod.POST)
+    Boolean addUesrEs(@RequestParam Map<String,Object> param);
+    
+    @RequestMapping(value = "/user/pageUserEs", method = RequestMethod.POST)
+    PageResult<User> pageUserEs(@RequestParam Map<String,Object> param);
     
 }
 

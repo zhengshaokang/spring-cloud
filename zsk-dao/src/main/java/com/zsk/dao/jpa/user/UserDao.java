@@ -1,4 +1,4 @@
-package com.zsk.dao.user;
+package com.zsk.dao.jpa.user;
 
 import java.util.List;
 

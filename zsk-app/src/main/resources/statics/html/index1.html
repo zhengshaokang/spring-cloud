@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>对外物流管理</title>
+<link rel="stylesheet" href="js/element/index.css">
+<script  src="js/vue.js"></script>
+<script src="js/axios.js"></script>
+<script src="js/element/index.js"></script>
+</head>
+<body>
+	<div id="app">
+	  <div style="height:200px;width:551px;">
+	  	<el-table
+		    :data="tableData"
+		    border
+		    style="width: 100%">
+		    <el-table-column
+		      fixed
+		      prop="id"
+		      label="id"
+		      width="150">
+		    </el-table-column>
+		    <el-table-column
+		      prop="name"
+		      label="姓名"
+		      width="150">
+		    </el-table-column>
+		    <el-table-column
+		      prop="age"
+		      label="年龄"
+		      width="150">
+		    </el-table-column>
+		    <el-table-column
+		      fixed="right"
+		      label="操作"
+		      width="100">
+		      <template scope="scope">
+		        <el-button @click="handleClick(scope.$index, scope.row)" type="text" size="small">查看</el-button>
+		        <el-button @click="test" type="text" size="small">编辑</el-button>
+		      </template>
+		    </el-table-column>
+		  </el-table>
+	  </div>
+	</div>
+<script>
+ var v = new Vue({
+	    el: '#app',
+	    data: {
+	    	tableData: []
+	    },
+	    methods:{
+	    	addUser:function(event) {
+	    		axios({
+	             	  method: 'post',
+	             	  url: "/user/add",
+	             	  params: {
+	             	   	    name: 'abc',
+	             	   	    age:33,
+	             	   	    id:1,
+	             	   		logName:'中文'
+	             	  }
+	           	}).then(function (response) {
+	           	  	alert(response.data);
+	           	 	v.user1.isflag = response.data;
+	           	}).catch(function (error) {
+	           	  	alert(error);
+	           	});
+	    	},
+	    	queryUser: function(event){
+	    		axios({
+		           	  method: 'post',
+		           	  url: this.registerUrl,
+		           	  params: {
+		           	    name: 'tttt'
+		           	  }
+	           	}).then(function (response) {
+	           		alert(JSON.stringify(response.data));
+	           	 	v.user1 = response.data;
+	           	}).catch(function (error) {
+	           	  	alert(error);
+	           	});
+	    	},
+	    	handleClick(index,row) {
+	            console.log(row);
+	            this.$message({
+                	 showClose: true,
+                	 message: JSON.stringify(row),
+                	 type: 'success'
+               });
+            },
+            test(){
+            	v.tableData= [{'id':10,'age':30,'name':'xiongxiong','logName':'xiongi'},{'id':20,'age':30,'name':'xiongxiong','logName':'xiongi'},{'id':30,'age':30,'name':'xiongxiong','logName':'xiongi'}]
+            }
+	    },
+	    mounted: function() {
+	       /*  this.$nextTick(function () {
+	        	axios.post('/user/query/1').then(function(res) {
+	                console.log(res.data)
+	                v.user = res.data;
+	            });*/
+	            axios.post('/user/list').then(function(res) {
+	            	  console.log(res.data)
+	                v.tableData = res.data;
+	            });
+	           /* 
+	           axios({
+	           	  method: 'post',
+	           	  url: this.registerUrl,
+	           	  params: {
+	           	    name: 'abc'
+	           	  }
+	           	}).then(function (response) {
+	           	  	//alert(JSON.stringify(response.data));
+	           	 	v.user1 = response.data;
+	           	}).catch(function (error) {
+	           	  	alert(error);
+	           	});
+	            
+	        }) */
+	    },
+	  })
+</script>	
+</body>
+</html>

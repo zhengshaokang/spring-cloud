@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.zsk.app.hystrix.UserHystrix;
+import com.zsk.commons.utils.PageResult;
 import com.zsk.dvo.User;
 
 /**
@@ -38,6 +39,36 @@ public class UserHystrixImpl implements UserHystrix {
 	public Boolean addUserByRedis(Map<String,Object> param) {
 		System.out.println("add user by redis error user="+param.toString());
 		return false;
+	}
+
+	@Override
+	public User queryUserByIdEs(Long id) {
+		System.out.println("queryUserByIdEs error="+id.toString());
+		return null;
+	}
+
+	@Override
+	public List<User> queryUsersEs() {
+		System.out.println("queryUsersEsAll error");
+		return null;
+	}
+
+	@Override
+	public List<User> findLikeNameEs(String name) {
+		System.out.println("findLikeNameEs error ="+name.toString());
+		return null;
+	}
+
+	@Override
+	public Boolean addUesrEs(Map<String, Object> param) {
+		System.out.println("addUesrEs error ="+param.toString());
+		return null;
+	}
+
+	@Override
+	public PageResult<User> pageUserEs(Map<String, Object> param) {
+		System.out.println("pageUserEs error="+param.toString());
+		return null;
 	}
 
 }
