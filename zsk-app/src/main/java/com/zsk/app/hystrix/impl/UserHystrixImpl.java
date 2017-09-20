@@ -70,5 +70,9 @@ public class UserHystrixImpl implements UserHystrix {
 		System.out.println("pageUserEs error="+param.toString());
 		return null;
 	}
-
+	@Override
+	public PageResult<User> pageUserJpa(Map<String, Object> param) {
+		System.out.println("pageUserJpa error="+param.toString());
+		return null;
+	}
 }

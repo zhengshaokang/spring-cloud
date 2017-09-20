@@ -40,6 +40,19 @@ public class UserController {
 		return u;
 	}
 	
+	@RequestMapping(value="/pageUserJpa",produces = "application/json; charset=utf-8")
+	public PageResult<User> pageUserJpa(PageParam<User> pageParam){
+		try {
+			Map<String, Object> param = ConvertObjectMap.objectToMap(pageParam);
+			PageResult<User> u = userHystrix.pageUserJpa(param);
+			return u;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
 	
 	@RequestMapping(value="/add",produces = "application/json; charset=utf-8")
 	@ResponseBody

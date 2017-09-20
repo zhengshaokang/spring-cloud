@@ -45,5 +45,8 @@ public interface UserHystrix {
     @RequestMapping(value = "/user/pageUserEs", method = RequestMethod.POST)
     PageResult<User> pageUserEs(@RequestParam Map<String,Object> param);
     
+    @RequestMapping(value = "/user/pageUserJpa", method = RequestMethod.POST)
+    PageResult<User> pageUserJpa(@RequestParam Map<String,Object> param);
+    
 }
 
