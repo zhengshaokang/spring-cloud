@@ -49,19 +49,20 @@
             </dependency>
         </dependencies>
     </dependencyManagement>  
-    <build>  
+     <build>  
         <plugins>  
             <plugin>  
                 <groupId>org.springframework.boot</groupId>  
                 <artifactId>spring-boot-maven-plugin</artifactId>  
+                <version>${boot.version}</version>
             </plugin>  
         </plugins>  
     </build>
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <boot.version>1.5.2.RELEASE</boot.version>
         <project.version>1.0-SNAPSHOT</project.version>
+        <boot.version>1.5.2.RELEASE</boot.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
   
