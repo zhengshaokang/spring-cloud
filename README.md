@@ -41,7 +41,6 @@ curl -X POST http://localhost:8080/shutdown
 安全验证
 
 如果在关闭时需要安全验证，则在pom.xml文件中添加：
-
 <dependency>
      <groupId>org.springframework.boot</groupId>
      <artifactId>spring-boot-starter-security</artifactId>
