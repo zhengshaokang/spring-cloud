@@ -44,7 +44,6 @@ curl -X POST http://localhost:8080/shutdown
 
 <dependency>
      <groupId>org.springframework.boot</groupId>
-
      <artifactId>spring-boot-starter-security</artifactId>
 </dependency>
 
