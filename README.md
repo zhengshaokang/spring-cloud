@@ -1,6 +1,6 @@
-# spirngcloud
+# spirngcloud  
 
-使用了springboot spring-data-jpa redis elasticsearch（2.4.6） vue.js 
+使用了springboot spring-data-jpa redis elasticsearch（2.4.6） vue.js  element-ui
 
 zsk-app  消费者，端口 8021
 
